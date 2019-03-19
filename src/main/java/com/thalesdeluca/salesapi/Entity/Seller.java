@@ -17,8 +17,11 @@ public class Seller {
 
     public Seller() {}
 
+    public Seller(int id) {
+        setSellerId(id);
+    }
+
     public Seller(int id, String name){
-        super();
         setSellerId(id);
         setSellerName(name);
     }

@@ -16,19 +16,16 @@ public class SaleService {
     @Autowired
     private SaleDao saleDao;
 
-    @Autowired
-    private Seller seller;
 
     public Sale createSale(float value, int sellerId) {
         int id;
         do{
             Random rand = new Random();
-            id = (rand.nextInt((999999 - 1000) + 1) + 1000);
+            id = rand.nextInt((999999 - 100000) + 1) + 100000;
         } while(saleDao.checkId(id));
 
-        seller.setSellerId(sellerId);
 
-        return saleDao.createSale(new Sale(id, new Date(), value, seller));
+        return saleDao.createSale(new Sale(id, new Date(), value, new Seller(sellerId)));
     }
 
     public Collection<Sale> getAllSales() {

@@ -22,7 +22,6 @@ public class Sale {
     public Sale() { }
 
     public Sale(int id, Date date, float value) {
-        super();
         setId(id);
         setDate(date);
         setValue(value);
