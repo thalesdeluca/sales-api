@@ -19,11 +19,11 @@ public class SaleService {
 
     public Sale createSale(float value, int sellerId) {
         int id;
+
         do{
             Random rand = new Random();
-            id = rand.nextInt((999999 - 100000) + 1) + 100000;
+            id = rand.nextInt((999999 - 1000) + 1) + 1000;
         } while(saleDao.checkId(id));
-
 
         return saleDao.createSale(new Sale(id, new Date(), value, new Seller(sellerId)));
     }

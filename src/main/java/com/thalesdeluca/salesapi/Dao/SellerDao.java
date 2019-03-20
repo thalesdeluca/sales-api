@@ -1,11 +1,14 @@
 package com.thalesdeluca.salesapi.Dao;
 
+import com.thalesdeluca.salesapi.Dto.DailyAvgDto;
 import com.thalesdeluca.salesapi.Entity.Seller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 @Repository
 public class SellerDao {
@@ -39,5 +42,6 @@ public class SellerDao {
 
         return false;
     }
+
 
 }

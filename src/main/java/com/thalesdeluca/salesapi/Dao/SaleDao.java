@@ -1,10 +1,12 @@
 package com.thalesdeluca.salesapi.Dao;
 
+import com.thalesdeluca.salesapi.Dto.DailyAvgDto;
 import com.thalesdeluca.salesapi.Entity.Sale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 @Repository
 public class SaleDao {
@@ -40,5 +42,8 @@ public class SaleDao {
         return saleList;
     }
 
+    public Collection<DailyAvgDto> getAvgDaily(Date begin, Date end) {
+        return saleRepository.getSaleRange(begin, end);
+    }
 
 }

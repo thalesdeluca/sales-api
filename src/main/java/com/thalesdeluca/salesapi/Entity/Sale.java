@@ -15,9 +15,10 @@ import java.util.Date;
 public class Sale {
 
     @Id private int id;
-    @NotNull private Date date;
+    @NotNull private Date saleDate;
     @NotNull private float value;
     @ManyToOne private Seller seller;
+    private long dateLong;
 
     public Sale() { }
 
@@ -25,14 +26,16 @@ public class Sale {
         setId(id);
         setDate(date);
         setValue(value);
+        setDateLong(date);
     }
 
     public Sale(int id, Date date, float value, Seller seller) {
-        super();
         setId(id);
         setDate(date);
         setValue(value);
         setSeller(seller);
+        setDateLong(date);
+
     }
 
     public int getId() {
@@ -44,11 +47,12 @@ public class Sale {
     }
 
     public Date getDate() {
-        return date;
+        return saleDate;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.saleDate = date;
+        setDateLong(date);
     }
 
     public float getValue() {
@@ -65,5 +69,13 @@ public class Sale {
 
     public void setSeller(Seller seller) {
         this.seller = seller;
+    }
+
+    private void setDateLong(Date date) {
+        this.dateLong = date.getTime();
+    }
+
+    public long getDateLong() {
+        return dateLong;
     }
 }
