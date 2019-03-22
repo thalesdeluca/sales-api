@@ -58,7 +58,7 @@ Requests and responses will all be in JSON. The application will run at ``http:/
   <tr>
     <td>/sales</td>
     <td>POST</td>
-    <td>Creates a sale. <i>Requires Body</i>*</td>
+    <td>Creates a sale. <i>Requires <b>Body</b></i>*</td>
     <td>value: number, <br/><br/>sellerId: number</td>
   </tr>
   
@@ -72,14 +72,14 @@ Requests and responses will all be in JSON. The application will run at ``http:/
   <tr>
     <td>/sellers</td>
     <td>POST</td>
-    <td>Creates a seller. <i>Requires Params</i>*</td>
+    <td>Creates a seller. <i>Requires <b>Body</b></i>*</td>
     <td>name: string</td>
   </tr>
   
   <tr>
     <td>/sellers/avg</td>
     <td>GET</td>
-    <td>Retrieves a list containing seller Name, Sales Total and Average sales per day.  <i>Requires Params</i>*</td>
+    <td>Retrieves a list containing seller Name, Sales Total and Average sales per day.  <i>Requires <b>Params</b></i>*</td>
     <td>begin: long(date), <br/><br/>end: long(date)</td>
   </tr>
     

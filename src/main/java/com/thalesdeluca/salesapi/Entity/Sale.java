@@ -7,7 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.*;
+import java.util.Locale;
 
 @Component
 @Entity
@@ -15,27 +16,25 @@ import java.util.Date;
 public class Sale {
 
     @Id private int id;
-    @NotNull private Date saleDate;
     @NotNull private float value;
     @ManyToOne private Seller seller;
     private long dateLong;
+    @NotNull private LocalDate saleDate;
 
     public Sale() { }
 
-    public Sale(int id, Date date, float value) {
+    public Sale(int id, long date, float value) {
         setId(id);
         setDate(date);
         setValue(value);
         setDateLong(date);
     }
 
-    public Sale(int id, Date date, float value, Seller seller) {
+    public Sale(int id, long date, float value, Seller seller) {
         setId(id);
         setDate(date);
         setValue(value);
         setSeller(seller);
-        setDateLong(date);
-
     }
 
     public int getId() {
@@ -46,12 +45,12 @@ public class Sale {
         this.id = id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return saleDate;
     }
 
-    public void setDate(Date date) {
-        this.saleDate = date;
+    public void setDate(long date) {
+        this.saleDate = Instant.ofEpochMilli(date).atZone(ZoneId.systemDefault()).toLocalDate();
         setDateLong(date);
     }
 
@@ -71,8 +70,8 @@ public class Sale {
         this.seller = seller;
     }
 
-    private void setDateLong(Date date) {
-        this.dateLong = date.getTime();
+    private void setDateLong(long date) {
+        this.dateLong = date;
     }
 
     public long getDateLong() {
