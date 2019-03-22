@@ -1,9 +1,11 @@
 package com.thalesdeluca.salesapi.Controller;
 
+import com.thalesdeluca.salesapi.Dto.CreateSellerDto;
 import com.thalesdeluca.salesapi.Dto.DailyAvgDto;
 import com.thalesdeluca.salesapi.Entity.Seller;
 import com.thalesdeluca.salesapi.Service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -17,8 +19,8 @@ public class SellerController {
     private SellerService sellerService;
 
     @PostMapping
-    public Seller createSeller(@RequestParam String name){
-        return sellerService.createSeller(name);
+    public Seller createSeller(@RequestBody CreateSellerDto sellerDto){
+        return sellerService.createSeller(sellerDto.getName());
     }
 
     @GetMapping
@@ -30,5 +32,4 @@ public class SellerController {
     public Collection<DailyAvgDto> getDailyAvg(@RequestParam long begin, @RequestParam long end){
         return sellerService.getDailyAvg(new Date(begin), new Date(end));
     }
-
 }

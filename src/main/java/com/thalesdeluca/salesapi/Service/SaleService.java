@@ -6,6 +6,7 @@ import com.thalesdeluca.salesapi.Entity.Seller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.ZonedDateTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Random;
@@ -25,7 +26,8 @@ public class SaleService {
             id = rand.nextInt((999999 - 1000) + 1) + 1000;
         } while(saleDao.checkId(id));
 
-        return saleDao.createSale(new Sale(id, new Date(), value, new Seller(sellerId)));
+
+        return saleDao.createSale(new Sale(id, System.currentTimeMillis(), value, new Seller(sellerId)));
     }
 
     public Collection<Sale> getAllSales() {

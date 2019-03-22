@@ -4,6 +4,7 @@ import com.thalesdeluca.salesapi.Dto.CreateSaleDto;
 import com.thalesdeluca.salesapi.Entity.Sale;
 import com.thalesdeluca.salesapi.Service.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ public class SaleController {
     private SaleService saleService;
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Sale createSale(@RequestBody CreateSaleDto saleDto) {
         return saleService.createSale(saleDto.getValue(), saleDto.getSellerId());
     }
