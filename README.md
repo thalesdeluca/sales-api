@@ -1,4 +1,6 @@
 # Sales API
+### Downloads
+[API stable release](https://github.com/thalesdeluca/sales-api/releases/download/1.0/sales-api.jar)
 
 ### Branching
 This project utilizes multiple branches to manage code, which are:
