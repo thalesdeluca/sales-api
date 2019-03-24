@@ -2,19 +2,19 @@ package com.thalesdeluca.salesapi.Dao;
 
 import com.thalesdeluca.salesapi.Dto.DailyAvgDto;
 import com.thalesdeluca.salesapi.Entity.Sale;
+import com.thalesdeluca.salesapi.Repository.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
 @Repository
 public class SaleDao {
 
     @Autowired
-    private ISaleDao saleRepository;
+    private SaleRepository saleRepository;
 
 
     public Sale createSale(Sale sale) {
@@ -44,8 +44,6 @@ public class SaleDao {
         return saleList;
     }
 
-    public Collection<DailyAvgDto> getDailyAvg(LocalDate begin, LocalDate end) {
-        return saleRepository.getSaleRange(begin, end);
-    }
+
 
 }

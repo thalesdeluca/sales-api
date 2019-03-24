@@ -8,13 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static com.thalesdeluca.salesapi.Util.SalesApiUtils.dateToLocalDate;
 import static org.mockito.BDDMockito.*;
 
 import java.time.LocalDate;
@@ -29,9 +27,6 @@ public class SellerServiceUnitTest {
 
     @MockBean
     private SellerDao sellerDao;
-
-    @MockBean
-    private SaleDao saleDao;
 
     @InjectMocks
     private SellerService sellerService;
@@ -62,7 +57,7 @@ public class SellerServiceUnitTest {
         DailyAvgDto avg = new DailyAvgDto("Teste", 100L, 2.5f);
         Collection<DailyAvgDto> avgList = Collections.singletonList(avg);
 
-        given(saleDao.getDailyAvg(any(LocalDate.class), any(LocalDate.class))).willReturn(avgList);
+        given(sellerDao.getDailyAvg(any(LocalDate.class), any(LocalDate.class))).willReturn(avgList);
 
         Collection<DailyAvgDto> response = sellerService.getDailyAvg(1548036000000L, 1553278790198L);
 

@@ -23,9 +23,6 @@ public class SellerService {
     @Autowired
     private SellerDao sellerDao;
 
-    @Autowired
-    private SaleDao saleDao;
-
     public Seller createSeller(String name){
         return sellerDao.createSeller(new Seller(generateId(), name));
     }
@@ -38,7 +35,7 @@ public class SellerService {
         LocalDate beginDate = dateToLocalDate(begin);
         LocalDate endDate = dateToLocalDate(end);
 
-        Collection<DailyAvgDto> list = saleDao.getDailyAvg(beginDate, endDate);
+        Collection<DailyAvgDto> list = sellerDao.getDailyAvg(beginDate, endDate);
 
         long diffInDays = ChronoUnit.DAYS.between(beginDate, endDate) + 1;
         System.out.println(diffInDays);
