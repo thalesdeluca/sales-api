@@ -1,18 +1,16 @@
-package com.thalesdeluca.salesapi.Dao;
+package com.thalesdeluca.salesapi.Repository;
 
 import com.thalesdeluca.salesapi.Dto.DailyAvgDto;
-import com.thalesdeluca.salesapi.Entity.Sale;
+import com.thalesdeluca.salesapi.Entity.Seller;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface ISaleDao extends CrudRepository<Sale, Integer> {
+public interface SellerRepository extends CrudRepository<Seller, Integer> {
     @Query("SELECT new com.thalesdeluca.salesapi.Dto.DailyAvgDto(se.sellerName, COUNT(sa.id)) " +
 
             "FROM Sale sa INNER JOIN Seller se " +
