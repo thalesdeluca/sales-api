@@ -19,7 +19,7 @@ public class SaleService {
 
 
     public Sale createSale(float value, int sellerId) {
-        int id;
+        Integer id;
 
         do{
             Random rand = new Random();

@@ -5,6 +5,7 @@ import com.thalesdeluca.salesapi.Dao.SellerDao;
 import com.thalesdeluca.salesapi.Dto.DailyAvgDto;
 import com.thalesdeluca.salesapi.Entity.Seller;
 import com.thalesdeluca.salesapi.Entity.Sale;
+import static com.thalesdeluca.salesapi.Util.SalesApiUtils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,27 +26,19 @@ public class SellerService {
     @Autowired
     private SaleDao saleDao;
 
-    public Seller createSeller(String name) {
-        int id;
-
-        do{
-            Random rand = new Random();
-            id = (rand.nextInt((999999 - 100000) + 1) + 100000);
-        } while(sellerDao.checkId(id));
-
-        return sellerDao.createSeller(new Seller(id, name));
+    public Seller createSeller(String name){
+        return sellerDao.createSeller(new Seller(generateId(), name));
     }
 
     public Collection<Seller> getAllSellers() {
         return sellerDao.getAllSellers();
     }
 
-    public Collection<DailyAvgDto> getDailyAvg(Date begin, Date end) {
-
-        Collection<DailyAvgDto> list = saleDao.getAvgDaily(begin, end);
-
+    public Collection<DailyAvgDto> getDailyAvg(long begin, long end) {
         LocalDate beginDate = dateToLocalDate(begin);
         LocalDate endDate = dateToLocalDate(end);
+
+        Collection<DailyAvgDto> list = saleDao.getDailyAvg(beginDate, endDate);
 
         long diffInDays = ChronoUnit.DAYS.between(beginDate, endDate) + 1;
         System.out.println(diffInDays);
@@ -57,11 +50,13 @@ public class SellerService {
         return list;
     }
 
-    private LocalDate dateToLocalDate(Date date){
-        return Instant.ofEpochMilli(date.getTime())
-                      .atZone(ZoneId.systemDefault())
-                      .toLocalDate();
+    private Integer generateId() {
+        Integer id;
+        do {
+            Random rand = new Random();
+            id = (rand.nextInt((999999 - 100000) + 1) + 100000);
+        } while(sellerDao.checkId(id));
+        return id;
     }
-
 
 }

@@ -13,7 +13,7 @@ import java.util.Date;
 @RestControllerAdvice
 public class GlobalControllerExceptionHandler {
 
-    @ExceptionHandler(value = { MethodArgumentTypeMismatchException.class, InvalidFormatException.class, HttpMessageNotReadableException.class })
+    /*@ExceptionHandler(value = { MethodArgumentTypeMismatchException.class, InvalidFormatException.class, HttpMessageNotReadableException.class })
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorDetails typeMismatch(Exception e) {
         return new ErrorDetails(new Date().getTime(), "Argument Type Mismatch", HttpStatus.BAD_REQUEST);
@@ -23,7 +23,7 @@ public class GlobalControllerExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorDetails unknownError(Exception e) {
         return new ErrorDetails(new Date().getTime(), "Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+    }*/
 
 
 }
