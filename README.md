@@ -1,4 +1,8 @@
 # Sales API
+[![Build Status](https://travis-ci.org/thalesdeluca/sales-api.svg?branch=tests)](https://travis-ci.org/thalesdeluca/sales-api)
+[![codecov](https://codecov.io/gh/thalesdeluca/sales-api/branch/master/graph/badge.svg)](https://codecov.io/gh/thalesdeluca/sales-api)
+
+
 ### Downloads
 [API stable release](https://github.com/thalesdeluca/sales-api/releases/download/1.0/sales-api.jar)
 
