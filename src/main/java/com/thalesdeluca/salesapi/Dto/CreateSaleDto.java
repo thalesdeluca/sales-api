@@ -4,6 +4,8 @@ public class CreateSaleDto {
     private float value;
     private int sellerId;
 
+    public CreateSaleDto() {}
+
     public CreateSaleDto(float value, int sellerId) {
         this.value = value;
         this.sellerId = sellerId;

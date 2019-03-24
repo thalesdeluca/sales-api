@@ -31,7 +31,7 @@ public class SellerDao {
         return sellerList;
     }
 
-    public boolean checkId(int id) {
+    public boolean checkId(Integer id) {
         Iterable<Seller> sellerList = sellerRepository.findAll();
 
         for(Seller seller : sellerList) {

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -20,5 +21,5 @@ public interface ISaleDao extends CrudRepository<Sale, Integer> {
             "WHERE sa.saleDate BETWEEN ?1 AND ?2 " +
 
             "GROUP BY se.sellerId, se.sellerName")
-    public List<DailyAvgDto> getSaleRange(Date begin, Date end);
+    public List<DailyAvgDto> getSaleRange(LocalDate begin, LocalDate end);
 }
