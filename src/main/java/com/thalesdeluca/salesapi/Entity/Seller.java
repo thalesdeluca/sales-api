@@ -12,7 +12,11 @@ import javax.validation.constraints.NotNull;
 @Table(name = "seller")
 public class Seller {
 
-    @Id private int sellerId;
+    @Id
+    @NotNull
+    private int sellerId;
+
+    @NotNull
     private String sellerName;
 
     public Seller() {}
