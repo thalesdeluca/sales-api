@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.*;
 import java.util.Locale;
@@ -15,11 +16,20 @@ import java.util.Locale;
 @Table(name = "sale")
 public class Sale {
 
-    @Id private int id;
-    @NotNull private float value;
-    @ManyToOne private Seller seller;
+    @Id
+    private int id;
+
+    @NotNull
+    private float value;
+
+    @ManyToOne
+    private Seller seller;
+
+    @NotNull
     private long dateLong;
-    @NotNull private LocalDate saleDate;
+
+    @NotNull
+    private LocalDate saleDate;
 
     public Sale() { }
 
