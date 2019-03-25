@@ -1,7 +1,6 @@
 # Sales API
 [![Build Status](https://travis-ci.org/thalesdeluca/sales-api.svg?branch=tests)](https://travis-ci.org/thalesdeluca/sales-api)
-[![Coverage Status](https://coveralls.io/repos/github/thalesdeluca/sales-api/badge.svg?branch=master)](https://coveralls.io/github/thalesdeluca/sales-api?branch=master)
-
+[![Coverage Status](https://coveralls.io/repos/github/thalesdeluca/sales-api/badge.svg?branch=tests)](https://coveralls.io/github/thalesdeluca/sales-api?branch=tests)
 ### Downloads
 [API stable release](https://github.com/thalesdeluca/sales-api/releases/download/1.0/sales-api.jar)
 
